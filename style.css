@@ -1,66 +1,99 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f2f2f2;
+}
+
+/* AUTH BOX */
 .auth-container {
-  width: 100%;
-  max-width: 400px;
+  width: 90%;
+  max-width: 500px;
   margin: auto;
-  padding-top: 40px;
+  margin-top: 40px;
   text-align: center;
 }
 
+.main-title {
+  margin-bottom: 20px;
+  color: #333;
+}
+
 .auth-box {
-  border: 1px solid #ddd;
+  background: white;
   padding: 20px;
   margin-top: 20px;
-  border-radius: 10px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
 .auth-box input {
   width: 90%;
   padding: 10px;
-  margin: 8px 0;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #ccc;
 }
 
 .auth-box button {
-  padding: 10px;
-  width: 100%;
+  width: 95%;
+  padding: 12px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
 }
 
+.auth-box button:hover {
+  background: #0056b3;
+}
+
+/* NAVBAR */
 .navbar {
-  background: #222;
-  color: #fff;
+  background: #007bff;
+  color: white;
   padding: 15px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
-.navbar button {
-  background: red;
-  color: #fff;
-  border: none;
+.logout-btn {
   padding: 8px 15px;
+  background: red;
+  border: none;
+  color: white;
+  border-radius: 5px;
   cursor: pointer;
 }
 
 .home-container {
+  margin-top: 40px;
   text-align: center;
-  margin-top: 50px;
 }
 
 .home-container input {
-  width: 70%;
-  padding: 10px;
-  margin: 10px 0;
+  width: 80%;
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #aaa;
 }
 
 .btn {
   padding: 10px 20px;
-  cursor: pointer;
   background: #007bff;
   color: white;
   border: none;
+  border-radius: 5px;
+  cursor: pointer;
   margin-top: 10px;
 }
 
 .category-btn {
   background: #28a745;
+}
+
+.btn:hover {
+  opacity: 0.8;
 }
