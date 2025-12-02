@@ -10,7 +10,6 @@ function signup() {
   }
 
   localStorage.setItem("user", JSON.stringify({ name, email, pass }));
-
   alert("Signup successful! Now please Sign In.");
 }
 
@@ -29,7 +28,8 @@ function login() {
 
   if (email === user.email && pass === user.pass) {
     alert("Login successful!");
-    window.location.href = "home.html";  // redirect works now
+    localStorage.setItem("loggedIn", "true");    // <-- Store login state
+    window.location.href = "home.html";
   } else {
     alert("Incorrect Email or Password");
   }
