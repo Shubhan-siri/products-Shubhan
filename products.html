@@ -116,15 +116,10 @@
       productList.innerHTML = html;
     }
 
-    // Initial display
+    // Initial display on page load
     window.onload = function () {
-      const searchResult = JSON.parse(localStorage.getItem("searchResult"));
-      if (searchResult && searchResult.length > 0) {
-        displayProducts(searchResult);
-        localStorage.removeItem("searchResult");
-      } else {
-        displayProducts(allProducts);
-      }
+      displayProducts(allProducts); // Always show full products list
+      localStorage.removeItem("searchResult"); // Clear previous search results
     };
 
     // Live search
