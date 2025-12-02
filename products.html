@@ -18,13 +18,8 @@
 
     <h3>Available Product</h3>
 
-    <div class="product-card" style="border:1px solid #ccc; padding:15px; margin-top:10px; border-radius:8px;">
-      <h4>Machine Rice Flour</h4>
-      <p><strong>Price:</strong> ₹ 2,00,000</p>
-      <p><strong>Category:</strong> Machinery</p>
-      <p><strong>Gate Number:</strong> 12</p>
-      <p><strong>Broker Number:</strong> +91 9876543210</p>
-    </div>
+    <!-- Dynamic product list ke liye div -->
+    <div id="productList"></div>
 
   </div>
 
@@ -33,6 +28,36 @@
       localStorage.removeItem("user");
       window.location.href = "index.html";
     }
+
+    // Products ko localStorage se fetch aur display karne ka code
+    window.onload = function () {
+      let products = JSON.parse(localStorage.getItem("searchResult")) || JSON.parse(localStorage.getItem("products")) || [];
+
+      const productList = document.getElementById("productList");
+
+      if (products.length === 0) {
+        productList.innerHTML = "<p>No products available.</p>";
+        return;
+      }
+
+      let html = "";
+      products.forEach((p) => {
+        html += `
+          <div class="product-card" style="border:1px solid #ccc; padding:15px; margin-top:10px; border-radius:8px;">
+            <h4>${p.name}</h4>
+            <p><strong>Price:</strong> ₹${p.price}</p>
+            <p><strong>Category:</strong> ${p.category}</p>
+            <p><strong>Gate Number:</strong> ${p.gate || "-"}</p>
+            <p><strong>Broker Number:</strong> ${p.broker || "-"}</p>
+          </div>
+        `;
+      });
+
+      productList.innerHTML = html;
+
+      // Search result clear kar de
+      localStorage.removeItem("searchResult");
+    };
   </script>
 
 </body>
