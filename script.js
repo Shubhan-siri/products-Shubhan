@@ -45,8 +45,16 @@ window.onload = function() {
         price: 200000,
         gate: 12,
         broker: "+91 9876543210"
+      },
+      {   // <-- comma was missing above
+        name: "Wheet Floor Machine",
+        category: "Machinery",
+        price: 150000,   // yahan price change kar sakte ho
+        gate: 15,        // yahan gate number
+        broker: "+91 9876543211" // yahan broker number
       }
     ];
     localStorage.setItem("products", JSON.stringify(defaultProduct));
   }
 };
+
