@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home — Product Finder</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <div class="navbar">
+    <h2>Product Finder</h2>
+    <button onclick="logout()">Logout</button>
+  </div>
+
+  <div class="home-container">
+    <h3>Welcome!</h3>
+    <p>Find product by search or category</p>
+
+    <input type="text" id="searchInput" placeholder="Enter product name..." />
+    <button class="btn" onclick="searchProduct()">Search Product</button>
+
+    <h4>Or</h4>
+
+    <button class="btn category-btn" onclick="goCategory()">Select Category</button>
+  </div>
+
+  <script>
+    // Search route
+    function searchProduct() {
+      const query = document.getElementById("searchInput").value;
+
+      if (!query.trim()) {
+        alert("Please enter product name!");
+        return;
+      }
+
+      localStorage.setItem("searchQuery", query);
+      window.location.href = "products.html"; // Next page
+    }
+
+    // Go to category page
+    function goCategory() {
+      window.location.href = "category.html";
+    }
+
+    // Logout
+    function logout() {
+      localStorage.removeItem("user");
+      window.location.href = "index.html";
+    }
+  </script>
+
+</body>
+</html>
